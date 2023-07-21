@@ -1,0 +1,29 @@
+{
+  "name": "namaste-react-day-3-updated-version",
+  "version": "1.0.0",
+  "description": "this is a course done by me and taught by akshay saini sie",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashusnapx/namaste-react-.git"
+  },
+  "author": "ashutosh kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashusnapx/namaste-react-/issues"
+  },
+  "homepage": "https://github.com/ashusnapx/namaste-react-#readme",
+  "dependencies": {
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-fontawesome": "^1.7.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
