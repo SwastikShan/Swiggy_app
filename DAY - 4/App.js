@@ -1830,7 +1830,7 @@ const AppLayout = () => {
         <>
             <>
                 <HeaderComponent />
-                {Body()}
+                <Body/>
                 <Footer></Footer>
             </>
         </>

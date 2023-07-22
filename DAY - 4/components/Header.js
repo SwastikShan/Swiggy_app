@@ -11,6 +11,12 @@ const Title = () => {
                 </h1>
             </a>
             <h1>{title}</h1>
+            <h1>
+                {
+                    ((a = 10),
+                    console.log(a))
+                }
+            </h1>
             <button onClick={() => {
 
                 if ( title === "Uncle Ji Paani Pila Dijiye..." ) {
@@ -26,6 +32,16 @@ const Title = () => {
 }
 
 export const HeaderComponent = () => {
+    const [ loggedIn, setLoggedIn ] = useState( false );
+
+    const onClickHandler = () => {
+        if ( loggedIn ) {
+            setLoggedIn( false );
+        }
+        else {
+            setLoggedIn( true );
+        }
+    }
     return (
         <div className="header">
             <Title />
@@ -37,6 +53,11 @@ export const HeaderComponent = () => {
                     <li>Cart</li>
                 </ul>
             </div>
+            {loggedIn ? (
+                <button onClick={onClickHandler}>Logout</button>
+            ) : (
+                <button onClick={onClickHandler}>Login</button>
+            )}
         </div>
     );
 };

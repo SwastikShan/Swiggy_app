@@ -1,15 +1,17 @@
-import { restaurantList } from "./Config";
 import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import { Shimmer } from "./Shimmer";
 
 function filterRestaurant( searchText, restaurantz ) {
     return restaurantz.filter( ( restaurant ) =>
-        restaurant.data.name.toLowerCase().includes( searchText.toLowerCase() )
+        restaurant?.info?.name?.toLowerCase()?.includes( searchText?.toLowerCase() )
     );
 }
 
+
 export const Body = () => {
-    const [ restaurantz, setRestaurantz ] = useState( null );
+    const [ allRestaurantz, setAllRestaurantz ] = useState( [] );
+    const [ filteredRestaurantz, setFilteredRestaurantz ] = useState( [] );
     const [ searchText, setSeachText ] = useState( "" );
 
     useEffect( () => {
@@ -19,7 +21,7 @@ export const Body = () => {
     async function getRestaurants() {
         try {
             const data = await fetch(
-                "https://www.swiggy.com/mapi/homepage/getCards?lat=23.1685786&lng=79.9338798"
+                "https://www.swiggy.com/mapi/homepage/getCards?lat=22.7195687&lng=75.8577258"
             );
 
             if ( !data.ok ) {
@@ -28,8 +30,10 @@ export const Body = () => {
 
             const json = await data.json();
             console.log( json );
-            console.log( json?.data?.success?.cards[ 5 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
-            setRestaurantz( json?.data?.success?.cards[ 5 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
+            console.log( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
+
+            setAllRestaurantz( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
+            setFilteredRestaurantz( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
         } catch ( error ) {
             console.error( "Error fetching restaurant data:", error );
             // Handle errors gracefully or display a message to the user.
@@ -42,43 +46,49 @@ export const Body = () => {
     }
 
     /* 
-    Conditional 
+    Conditional rendering:
+    1. if restaurant has no data then use shimmering effect -> UX principle
+    1. if restaurant has actual data then use actual data
     */
 
-    return (
-        <>
-            <div className="search-container">
-                <input
-                    type="text"
-                    className="search-input"
-                    placeholder="Search..."
-                    value={searchText}
-                    onChange={onChangeHandler}
-                />
-                <button className="search-btn" onClick={() => {
-                    const filteredData = filterRestaurant( searchText, restaurantz );
-                    setRestaurantz( filteredData );
-                }}>
-                    Search
-                </button>
-                <button className="search-btn" onClick={() => {
-                    setRestaurantz( restaurantz );
-                    setSeachText( "" );
-                }}>
-                    Reset
-                </button> - {searchText}
-            </div>
-            <div className="restaurant-list">
-                {
-                    
-                    restaurantz?.map( ( restaurant ) => {
-                        return <RestaurantCard data={restaurant.info} key={restaurant.info.id} />
-                    } )
-                }
-                    
-            </div>
+    if ( !allRestaurantz ) return null;
+
+    // if ( filteredRestaurantz?.length === 0 ) return <h1>Chodu hai kya bhai?</h1>
+
+    return allRestaurantz?.length === 0 ? ( <Shimmer /> ) :
+        (
+            <>
+                <div className="search-container">
+                    <input
+                        type="text"
+                        className="search-input"
+                        placeholder="Search..."
+                        value={searchText}
+                        onChange={onChangeHandler}
+                    />
+                    <button className="search-btn" onClick={() => {
+                        const filteredData = filterRestaurant( searchText, allRestaurantz );
+                        setFilteredRestaurantz( filteredData );
+                    }}>
+                        Search
+                    </button>
+                    <button className="search-btn" onClick={() => {
+                        setFilteredRestaurantz( allRestaurantz );
+                        setSeachText( "" );
+                    }}>
+                        Reset
+                    </button> - {searchText}
+                </div>
+                <div className="restaurant-list">
+                    {
+                        filteredRestaurantz?.length ===0 ? <h1>Kyu krta hai bhai yeh sab? Maine hr point pr check lga diya!</h1> :  filteredRestaurantz?.map( ( restaurant ) => {
+                            return <RestaurantCard data={restaurant.info} key={restaurant.info.id} />
+                        } )
+                    }
+
+                </div>
 
 
-        </>
-    );
+            </>
+        );
 }
