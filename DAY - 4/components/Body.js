@@ -1,6 +1,7 @@
 import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { Shimmer } from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterRestaurant( searchText, restaurantz ) {
     return restaurantz.filter( ( restaurant ) =>
@@ -33,6 +34,7 @@ export const Body = () => {
             console.log( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
 
             setAllRestaurantz( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
+
             setFilteredRestaurantz( json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle?.restaurants );
         } catch ( error ) {
             console.error( "Error fetching restaurant data:", error );
@@ -42,7 +44,18 @@ export const Body = () => {
 
 
     const onChangeHandler = ( e ) => {
-        setSeachText( e.target.value );
+        const searchText = e.target.value;
+        setSeachText( searchText );
+
+        if ( !searchText )
+        {
+            setFilteredRestaurantz( allRestaurantz );
+        }
+        else
+        {
+            const data = filterRestaurant( searchText, allRestaurantz );
+            setFilteredRestaurantz( data );
+        }
     }
 
     /* 
@@ -82,7 +95,7 @@ export const Body = () => {
                 <div className="restaurant-list">
                     {
                         filteredRestaurantz?.length ===0 ? <h1>Kyu krta hai bhai yeh sab? Maine hr point pr check lga diya!</h1> :  filteredRestaurantz?.map( ( restaurant ) => {
-                            return <RestaurantCard data={restaurant.info} key={restaurant.info.id} />
+                            return <Link to={"/restaurant/" +  restaurant.info.id }><RestaurantCard data={restaurant.info} /></Link>
                         } )
                     }
 

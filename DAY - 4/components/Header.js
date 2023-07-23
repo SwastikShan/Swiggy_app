@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Title = () => {
-    const [ title, setTitle ] = useState( "Uncle Ji Paani Pila Dijiye..." );
+    // const [ title, setTitle ] = useState( "Uncle Ji Paani Pila Dijiye..." );
 
     return (
         <>
@@ -10,14 +11,8 @@ const Title = () => {
                     Food Villa
                 </h1>
             </a>
-            <h1>{title}</h1>
-            <h1>
-                {
-                    ((a = 10),
-                    console.log(a))
-                }
-            </h1>
-            <button onClick={() => {
+            {/* <h1>{title}</h1> */}
+            {/* <button onClick={() => {
 
                 if ( title === "Uncle Ji Paani Pila Dijiye..." ) {
                     setTitle( "Mera Gala Sookh Rha Hai...." )
@@ -26,7 +21,7 @@ const Title = () => {
                     setTitle( "Uncle Ji Paani Pila Dijiye..." )
                 }
 
-            }}>Pr Kyu Bhai?</button>
+            }}>Pr Kyu Bhai?</button> */}
         </>
     )
 }
@@ -47,9 +42,9 @@ export const HeaderComponent = () => {
             <Title />
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <Link to="/"><li>Home</li> </Link>
+                    <Link to="/about"><li>About Us</li></Link>
+                    <Link to="/contact"><li>Contact Us</li></Link>
                     <li>Cart</li>
                 </ul>
             </div>

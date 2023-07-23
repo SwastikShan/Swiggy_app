@@ -1,16 +1,19 @@
 /* Color Palette */
 :root {
-    --primary-color: #e74c3c;
-    /* Alizarin Crimson */
+    --primary-color: #4CAF50;
+        /* Green */
     --secondary-color: #f9f9f9;
-    --text-color: #333;
+    --text-color: #222;
     --text-light-color: #777;
     --text-muted-color: #555;
 }
 
+a {
+    text-decoration: none;
+}
 /* General styles */
 body {
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -21,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    border: 1px solid var(--text-muted-color);
+    border-bottom: 1px solid var(--text-muted-color);
     padding: 10px;
     background-color: var(--secondary-color);
     margin: 10px;
@@ -29,6 +32,8 @@ body {
 
 .header h1 {
     margin: 0;
+    font-size: 2rem;
+        color: var(--primary-color);
 }
 
 .nav-items {
@@ -57,10 +62,6 @@ body {
     color: var(--primary-color);
 }
 
-.hello {
-    text-decoration: none;
-}
-
 /* Restaurant card styles */
 .card {
     margin: 20px;
@@ -72,6 +73,7 @@ body {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .card img {
@@ -98,6 +100,7 @@ body {
     margin: 5px 10px;
     color: var(--text-light-color);
     font-weight: lighter;
+    text-decoration: none;
 }
 
 .card h4 {
@@ -124,6 +127,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0 10px;
+    text-decoration: none;
     /* Remove top and bottom margin to utilize full screen space */
 }
 
@@ -205,6 +209,7 @@ html {
     }
 }
 
+/* Shimmer styles */
 .shimmer-container {
     display: flex;
     flex-direction: column;
@@ -235,4 +240,335 @@ html {
     100% {
         background-position: 200% 0;
     }
+}
+/* Add this to your existing CSS file */
+.shimmer-card {
+    margin: 20px;
+    border: 1px solid var(--text-muted-color);
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+    /* Adjust the height of the shimmer box */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.shimmer-image {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.shimmer-text {
+    width: 70%;
+    height: 20px;
+    margin: 5px 0;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* AboutUs component styles */
+
+.about-us {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-us h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-us h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Highlighted bullet points */
+
+.about-us ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    padding: 0;
+}
+
+.about-us li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Additional styles for anchor hover */
+
+.about-us a:hover {
+    color: var(--primary-color);
+}
+
+/* Highlighted labels and aesthetic styles */
+
+.about-us .highlight-label {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.about-us .speciality {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.about-us .myp {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Responsive layout for the about-us section */
+
+@media screen and (max-width: 768px) {
+    .about-us {
+        padding: 10px;
+    }
+
+    .about-us h2 {
+        font-size: 2rem;
+    }
+
+    .about-us h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-us p {
+        font-size: 1rem;
+    }
+
+    .about-us ul {
+        margin-left: 20px;
+    }
+
+    .about-us li {
+        font-size: 1rem;
+    }
+
+    /* Responsive styles for highlighted labels */
+
+    .about-us .speciality,
+    .about-us .myp {
+        padding: 3px 8px;
+    }
+}
+
+/* Error component styles */
+
+.error {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.error h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.error h2 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+/* Additional styles for anchor hover */
+
+.error a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive layout for the error section */
+
+@media screen and (max-width: 768px) {
+    .error {
+        padding: 10px;
+    }
+
+    .error h1 {
+        font-size: 2rem;
+    }
+
+    .error h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.contact img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.contact img:hover {
+    transform: scale(1.2);
+}
+
+.contact h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.contact p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.contact strong {
+    font-weight: bold;
+}
+
+/* RestaurantMenu.css */
+
+/* Main Container */
+.restaurant-menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Restaurant Details */
+.restaurant-details {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.restaurant-id {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.restaurant-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.restaurant-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cuisines,
+.ratings,
+.area,
+.cost-for-two {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* Food Items Container */
+.food-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Food Item */
+.food-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.food-item:hover {
+    transform: translateY(-5px);
+}
+
+.food-item-image {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-item-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.food-item-category {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.food-item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d53d4c;
+    margin-bottom: 5px;
+}
+
+.food-item-veg-nonveg {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.food-item-ratings {
+    font-size: 16px;
+    color: #fbc02d;
+    margin-bottom: 0;
 }

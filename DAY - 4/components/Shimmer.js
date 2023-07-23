@@ -1,11 +1,18 @@
+import React from "react";
+
 export const Shimmer = () => {
+    const shimmerBoxes = Array.from( { length: 6 }, ( _, index ) => index ); // Change 6 to the desired number of shimmer boxes
+
     return (
-        <div className="shimmer-container">
-            <h1>Ghoor kya rha lavde, load bhi naa hu kya ab? </h1>
-            <div className="shimmer-line shimmer-line-1"></div>
-            <div className="shimmer-line shimmer-line-2"></div>
-            <div className="shimmer-line shimmer-line-3"></div>
-            <h1>Ruk ja bhai, bs load ho hi rha hu...</h1>
+        <div className="restaurant-list">
+            {shimmerBoxes.map( ( boxIndex ) => (
+                <div className="card shimmer-card" key={boxIndex}>
+                    <div className="shimmer-image"></div>
+                    <div className="shimmer-text"></div>
+                    <div className="shimmer-text"></div>
+                    <div className="shimmer-text"></div>
+                </div>
+            ) )}
         </div>
     );
 };
