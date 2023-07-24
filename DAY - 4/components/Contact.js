@@ -31,6 +31,50 @@ const Contact = () => {
                     <p><strong>Address:</strong> {"Near Ranjhi Police Station, Jabalpur"}</p>
             </div>
             </div>
+        <div className="contact">
+            <div className="profile">
+                <img src={profileImage} alt={name} />
+                <h2>{name}</h2>
+            </div>
+            <div className="details">
+                <p><strong>Phone:</strong> {phoneNumber}</p>
+                <p><strong>Email:</strong> {email}</p>
+                <p><strong>Address:</strong> {address}</p>
+            </div>
+            </div>
+        <div className="contact">
+            <div className="profile">
+                    <img src={"https://lh3.googleusercontent.com/pw/AIL4fc9IgQBOx0fxSCUGezY2BZrY9FIltI3NOOWEbEci_jEIBorGSjV-54Oh7l9udEmz99Bg71n2uCvmLzFgiQVFILveEjTWb9OzB_iD16u6GvbPZIjGOJgg4ZtXEYn7Nw5Wf-L3NLAWpMThnUQcyC4W3cAPO_RfaxlCQh9zOHM8Mew4g1g_a6csCGgA-G8VKl6KxKOOT1yflZI5M35YYqaEvfIIwddrBsetjsSvJeXMQqxuRjUzZMTExYrVUKxXWBIe62_c34W3R_CQYu0JX2zc7Z40IPL_O603TYRMlVlLBAH-6ZeZUbyt_6uLJy4lR221EeuR_reXa30UxI5xONRoWWPm35HoC85CV7aHVxnmlfgUd6Cu814S7hso_5YdjmYkdwPCslHA_O_JPQT8UO6I6rrAxhs2HL0DOM6z5cmIpJrweNhWqt7B-tn3ocE_Kb7C1uzPImfEZBs9wFN9ffXZKYgwYF9qUvBN50gIm0w2EoVLS61UB2CDRfrtPMNPiUXFEG-UzjdB7yS5EWZUVpgfMO6rkhzZf5RLdi-zormjRMhnh8dmGvDaxXf4tQOdYZq_dFgbp91rXgOeOo9pL1Op_oZrL12JowyDJzp1__K3Tc19W1vauOzSTZOQ5arTyMKAHXi0LUR09MP_bC4wxmEIjE7LMTD13ZKpwOohXZDBYg1g2cOGLwvwNGIrxnkynKQCA9ZNasFndhnNK7inJ7PSt5-W2aGRXkwhk9ZqqIi25gnIKdnJC80vjPZrMcdi8Ut9W-bD4SrRCtgFwKx7uEjPLSF-yJuhBVBxqASiB_ZIrFiBnO0kFAcADJgC0c8IdKfr0oQJL3M2xJRxpaqyZmeCv0doEMiJrdp_dnYbXZOVe1doHs7_UROfMmR2ok7at2LHpelxQcx5xHy8a5FbVKrZw2pqgYTS2P4osng3mViIKvH702gdgeqJjKnSFdVbO6RoIM9-UI57JdHRDloMfyB9rwy_XvBQ-QaceBgXI826Tt-C7axY6aXdUs9kgPiFPZTQJFEiN_rxlF82NdCll22rMgPCuxu_CR-7cP7qxCJ1DftRLfxwxxQ84O-kDbRHpMzFQd4f3gyJdjxA=w2102-h1578-s-no?authuser=0"} alt={name} />
+                <h2>{"Yogendra Manawat"}</h2>
+            </div>
+            <div className="details">
+                <p><strong>Phone:</strong> {"+91-7987048046"}</p>
+                <p><strong>Email:</strong> {"yogendramanawat@gmail.com"}</p>
+                    <p><strong>Address:</strong> {"Near Ranjhi Police Station, Jabalpur"}</p>
+            </div>
+            </div>
+        <div className="contact">
+            <div className="profile">
+                <img src={profileImage} alt={name} />
+                <h2>{name}</h2>
+            </div>
+            <div className="details">
+                <p><strong>Phone:</strong> {phoneNumber}</p>
+                <p><strong>Email:</strong> {email}</p>
+                <p><strong>Address:</strong> {address}</p>
+            </div>
+            </div>
+        <div className="contact">
+            <div className="profile">
+                    <img src={"https://lh3.googleusercontent.com/pw/AIL4fc9IgQBOx0fxSCUGezY2BZrY9FIltI3NOOWEbEci_jEIBorGSjV-54Oh7l9udEmz99Bg71n2uCvmLzFgiQVFILveEjTWb9OzB_iD16u6GvbPZIjGOJgg4ZtXEYn7Nw5Wf-L3NLAWpMThnUQcyC4W3cAPO_RfaxlCQh9zOHM8Mew4g1g_a6csCGgA-G8VKl6KxKOOT1yflZI5M35YYqaEvfIIwddrBsetjsSvJeXMQqxuRjUzZMTExYrVUKxXWBIe62_c34W3R_CQYu0JX2zc7Z40IPL_O603TYRMlVlLBAH-6ZeZUbyt_6uLJy4lR221EeuR_reXa30UxI5xONRoWWPm35HoC85CV7aHVxnmlfgUd6Cu814S7hso_5YdjmYkdwPCslHA_O_JPQT8UO6I6rrAxhs2HL0DOM6z5cmIpJrweNhWqt7B-tn3ocE_Kb7C1uzPImfEZBs9wFN9ffXZKYgwYF9qUvBN50gIm0w2EoVLS61UB2CDRfrtPMNPiUXFEG-UzjdB7yS5EWZUVpgfMO6rkhzZf5RLdi-zormjRMhnh8dmGvDaxXf4tQOdYZq_dFgbp91rXgOeOo9pL1Op_oZrL12JowyDJzp1__K3Tc19W1vauOzSTZOQ5arTyMKAHXi0LUR09MP_bC4wxmEIjE7LMTD13ZKpwOohXZDBYg1g2cOGLwvwNGIrxnkynKQCA9ZNasFndhnNK7inJ7PSt5-W2aGRXkwhk9ZqqIi25gnIKdnJC80vjPZrMcdi8Ut9W-bD4SrRCtgFwKx7uEjPLSF-yJuhBVBxqASiB_ZIrFiBnO0kFAcADJgC0c8IdKfr0oQJL3M2xJRxpaqyZmeCv0doEMiJrdp_dnYbXZOVe1doHs7_UROfMmR2ok7at2LHpelxQcx5xHy8a5FbVKrZw2pqgYTS2P4osng3mViIKvH702gdgeqJjKnSFdVbO6RoIM9-UI57JdHRDloMfyB9rwy_XvBQ-QaceBgXI826Tt-C7axY6aXdUs9kgPiFPZTQJFEiN_rxlF82NdCll22rMgPCuxu_CR-7cP7qxCJ1DftRLfxwxxQ84O-kDbRHpMzFQd4f3gyJdjxA=w2102-h1578-s-no?authuser=0"} alt={name} />
+                <h2>{"Yogendra Manawat"}</h2>
+            </div>
+            <div className="details">
+                <p><strong>Phone:</strong> {"+91-7987048046"}</p>
+                <p><strong>Email:</strong> {"yogendramanawat@gmail.com"}</p>
+                    <p><strong>Address:</strong> {"Near Ranjhi Police Station, Jabalpur"}</p>
+            </div>
+            </div>
         </>
     );
 };

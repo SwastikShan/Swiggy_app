@@ -8,13 +8,14 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Error } from "./components/Error";
 import Contact from "./components/Contact";
 import { RestaurantMenu } from "./components/RestaurantMenu";
+import { Profile } from "./components/Profile";
 
 const AppLayout = () => {
     return (
         <>
             <>
                 <HeaderComponent />
-                <Outlet/>
+                <Outlet />
                 <Footer></Footer>
             </>
         </>
@@ -29,12 +30,18 @@ const appRouter = createBrowserRouter( [
         children: [
             {
                 path: "/",
-                element: <Body/>
-        },
+                element: <Body />
+            },
             {
                 path: "/about",
                 element: <AboutUs />,
                 errorElement: <Error />,
+                children: [
+                    {
+                        path: "profile",
+                        element: <Profile />
+                    },
+                ]
             },
             {
                 path: "/contact",
@@ -42,11 +49,11 @@ const appRouter = createBrowserRouter( [
             },
             {
                 path: "/restaurant/:resId",
-                element:<RestaurantMenu/>
+                element: <RestaurantMenu />
             }
         ]
     },
-]);
+] );
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
-root.render( <RouterProvider router={appRouter}/> );
+root.render( <RouterProvider router={appRouter} /> );

@@ -1,21 +1,26 @@
 /* Color Palette */
 :root {
     --primary-color: #4CAF50;
-        /* Green */
+    /* Green */
     --secondary-color: #f9f9f9;
     --text-color: #222;
     --text-light-color: #777;
     --text-muted-color: #555;
 }
 
-a {
-    text-decoration: none;
-}
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
+/* Global styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Header styles */
@@ -31,9 +36,9 @@ body {
 }
 
 .header h1 {
-    margin: 0;
     font-size: 2rem;
-        color: var(--primary-color);
+    color: var(--primary-color);
+    margin: 0;
 }
 
 .nav-items {
@@ -68,6 +73,7 @@ body {
     border: 1px solid var(--text-muted-color);
     border-radius: 10px;
     width: 100%;
+    height: 600px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -100,7 +106,6 @@ body {
     margin: 5px 10px;
     color: var(--text-light-color);
     font-weight: lighter;
-    text-decoration: none;
 }
 
 .card h4 {
@@ -125,10 +130,10 @@ body {
     justify-content: center;
     max-width: 100%;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0 10px;
     text-decoration: none;
     /* Remove top and bottom margin to utilize full screen space */
+    margin: 0;
+    padding: 0;
 }
 
 /* Footer styles */
@@ -137,6 +142,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px;
+    width: 100%;
 }
 
 footer p {
@@ -150,6 +156,23 @@ footer a {
 
 footer a:hover {
     color: var(--text-light-color);
+}
+
+/* New styles for sticky footer */
+html,
+body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
 }
 
 /* Social media icons for the footer */
@@ -195,10 +218,6 @@ html {
 @media screen and (max-width: 768px) {
     .restaurant-list {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        margin: 0;
-        /* Remove margin for better use of available space */
-        padding: 0;
-        /* Remove padding for better use of available space */
     }
 }
 
@@ -216,7 +235,7 @@ html {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 600vh;
     margin: 10px;
 }
 
@@ -241,6 +260,7 @@ html {
         background-position: 200% 0;
     }
 }
+
 /* Add this to your existing CSS file */
 .shimmer-card {
     margin: 20px;
@@ -276,16 +296,6 @@ html {
             rgba(0, 0, 0, 0) 100%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
 }
 
 /* AboutUs component styles */
@@ -571,4 +581,72 @@ html {
     font-size: 16px;
     color: #fbc02d;
     margin-bottom: 0;
+}
+
+/* Profile.css */
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 311px;
+    height: 409px;
+    border-radius: 10%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-details {
+    flex: 2;
+    padding-left: 40px;
+}
+
+.profile-details h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-details p {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.profile-details a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.profile-details a:hover {
+    color: #388E3C;
+}
+
+.profile-details p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive layout for the profile section */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-image {
+        margin-bottom: 20px;
+    }
+
+    .profile-details {
+        padding-left: 0;
+    }
 }

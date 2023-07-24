@@ -22,7 +22,7 @@ export const Body = () => {
     async function getRestaurants() {
         try {
             const data = await fetch(
-                "https://www.swiggy.com/mapi/homepage/getCards?lat=22.7195687&lng=75.8577258"
+                "https://www.swiggy.com/mapi/homepage/getCards?lat=19.024156&lng=72.8370062"
             );
 
             if ( !data.ok ) {
@@ -95,7 +95,7 @@ export const Body = () => {
                 <div className="restaurant-list">
                     {
                         filteredRestaurantz?.length ===0 ? <h1>Kyu krta hai bhai yeh sab? Maine hr point pr check lga diya!</h1> :  filteredRestaurantz?.map( ( restaurant ) => {
-                            return <Link to={"/restaurant/" +  restaurant.info.id }><RestaurantCard data={restaurant.info} /></Link>
+                            return <Link to={"/restaurant/" + restaurant.info.id}><RestaurantCard data={restaurant.info} key={restaurant.info.id} /></Link>
                         } )
                     }
 

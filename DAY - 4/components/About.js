@@ -1,10 +1,13 @@
-import { HeaderComponent } from "./Header";
+import { Outlet } from "react-router-dom";
+import { Profile } from "./Profile";
 const AboutUs = () => {
     return (
         <>
         
         <div className="about-us">
-            <h2>Welcome to Food Villa</h2>
+                <h2>Welcome to Food Villa</h2>
+                <Profile/>
+                <Outlet/>
             <p>
                 Food Villa is your one-stop destination for delicious and delightful
                 food. We are passionate about serving you the best food experience,
