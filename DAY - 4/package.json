@@ -1,7 +1,7 @@
 {
   "name": "namaste-react-day-3-updated-version",
   "version": "1.0.0",
-  "description": "this is a course done by me and taught by akshay saini sie",
+  "description": "this is a course done by me and taught by akshay saini sir",
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",

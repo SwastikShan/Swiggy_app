@@ -1,41 +1,16 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "./Config";
 import { Shimmer } from "./Shimmer";
+import useRestaurant from "../utils/useRestaurant";
 
 export const RestaurantMenu = () => {
     const { resId } = useParams();
     console.log( `This is your params : ${ resId }` );
 
-    const [ restaurant, setRestaurant ] = useState( null );
-
-    useEffect( () => {
-        getRestaurantInfo();
-    }, [] );
-
-    async function getRestaurantInfo() {
-        const data = await fetch(
-            "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.7195687&lng=75.8577258&restaurantId=" + resId
-        );
-        const json = await data.json();
-        console.log( `19th line : ${ json.data.cards[ 0 ].card.card.info.name }` );
+    const restaurant = useRestaurant( resId );
 
 
-        const itemNames = json?.data?.cards[ 3 ]?.groupedCard?.cardGroupMap?.REGULAR?.cards[ 1 ]?.card?.card?.itemCards.map(
-            ( item ) => item.card.info.name
-        );
-
-        console.log( "yeh menu nikaalne k prayas:", itemNames );
-
-        setRestaurant( json?.data?.cards );
-    }
-
-    if ( !restaurant )
-    {
-        return <Shimmer/>
-    }
-
-    return (
+    return !restaurant ? ( <Shimmer /> ) : (
         <div className="restaurant-menu-container">
             <div className="restaurant-details">
                 <h1 className="restaurant-id">Restaurant id: {resId}</h1>
@@ -48,7 +23,7 @@ export const RestaurantMenu = () => {
                     className="restaurant-image"
                 />
                 <h3 className="cuisines">
-                    Cuisines: {restaurant?.[ 0 ]?.card?.card?.info.cuisines.join(", ")}
+                    Cuisines: {restaurant?.[ 0 ]?.card?.card?.info.cuisines.join( ", " )}
                 </h3>
                 <h3 className="ratings">
                     Ratings: {restaurant?.[ 0 ]?.card?.card?.info.avgRating}
@@ -96,4 +71,4 @@ export const RestaurantMenu = () => {
 
         </div>
     );
-};
+}

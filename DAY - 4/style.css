@@ -32,7 +32,13 @@ a {
     border-bottom: 1px solid var(--text-muted-color);
     padding: 10px;
     background-color: var(--secondary-color);
-    margin: 10px;
+    /* margin: 10px; */
+    position: sticky;
+    top:0;
+    backdrop-filter: blur(5px);
+    /* Add the backdrop-filter property for the blur effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari support */
 }
 
 .header h1 {
@@ -131,9 +137,6 @@ a {
     max-width: 100%;
     overflow-x: hidden;
     text-decoration: none;
-    /* Remove top and bottom margin to utilize full screen space */
-    margin: 0;
-    padding: 0;
 }
 
 /* Footer styles */
@@ -228,21 +231,60 @@ html {
     }
 }
 
-/* Shimmer styles */
-.shimmer-container {
+/* Styles for the search container in Shimmer.js */
+.search-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 600vh;
-    margin: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: #f9f9f9;
 }
 
-.shimmer-line {
+/* Styles for the search input in Shimmer.js */
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background: transparent;
+}
+
+/* Styles for the shimmer card */
+.shimmer-card {
+    margin: 20px;
+    border: 1px solid var(--text-muted-color);
+    border-radius: 10px;
     width: 100%;
+    height: 300px;
+    /* Adjust the height of the shimmer box */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Styles for the shimmer image */
+.shimmer-image {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Styles for the shimmer text */
+.shimmer-text {
+    width: 70%;
     height: 20px;
-    margin-bottom: 10px;
+    margin: 5px 0;
     background: linear-gradient(to right,
             rgba(0, 0, 0, 0) 0%,
             rgba(0, 0, 0, 0.2) 50%,
@@ -259,43 +301,6 @@ html {
     100% {
         background-position: 200% 0;
     }
-}
-
-/* Add this to your existing CSS file */
-.shimmer-card {
-    margin: 20px;
-    border: 1px solid var(--text-muted-color);
-    border-radius: 10px;
-    width: 100%;
-    height: 300px;
-    /* Adjust the height of the shimmer box */
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    position: relative;
-}
-
-.shimmer-image {
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-}
-
-.shimmer-text {
-    width: 70%;
-    height: 20px;
-    margin: 5px 0;
-    background: linear-gradient(to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
 }
 
 /* AboutUs component styles */
@@ -650,3 +655,90 @@ html {
         padding-left: 0;
     }
 }
+
+/* Styles for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: #f9f9f9;
+}
+
+/* Styles for the search input */
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background: transparent;
+}
+
+/* Styles for the search buttons */
+.search-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    background-color: #4caf50;
+    /* Green button color */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect for search button */
+.search-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styles for the Reset button */
+#resetBtn {
+    background-color: #f44336;
+    /* Red button color */
+}
+
+/* Hover effect for Reset button */
+#resetBtn:hover {
+    background-color: #e53935;
+}
+
+/* Styles for the search text */
+.search-text {
+    margin-left: 10px;
+    color: #666;
+}
+
+/* Offline message styles */
+.offline-message-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.offline-message {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Offline image styles */
+.offline-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional styles for anchor hover in offline message */
+.offline-message a:hover {
+    color: var(--text-light-color);
+}
+
+/* Add more styles as needed to match your page's design */

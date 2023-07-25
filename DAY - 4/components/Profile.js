@@ -13,10 +13,10 @@ export const Profile = () => {
         <div className="profile-container">
             <div className="profile-image">
                 <img
-                    src="https://lh3.googleusercontent.com/pw/AIL4fc-_S73BmA7IxYRzG33j3byk045NNDjx8NreH1KrIwqYSncbLkQ508Ij61U2lhdofWe21Al8g2qUHKyVhhIYNqptUBS8vZ_30_EOnZbqBimxH8eIZj8LpDVtrVT2BjfxaIggapSlYaD8nhEVgPun9jG44jlZjcuiXP-ih8Q_EkLNNuS4aQZ38ft-Oeo1WZltINDCR-oPGDTcff3vLPtnETEGnsDarsdEc7oBc62Iqtl8-SLIzC0vzheIX3F08vCqOCbAMJvztSzvypH5RCNL1LIWLJ-Bw9OSJP6LtuQA8hNTmrdiw8bG0fZPun_muY58HcgdK3GkNHqXrR3oQXrpORgD4RQ923Bk0KlI4AGmUrMTn5AHqaHZiwItbp_uT3rCMSjdFINXak6ApFo21j6PgINTc0cV-DKXes4mjVSXSCiz4x7OD61e7ShN-Ue2UbiQRCwRIhvEBcmsVAq8YBh5kaLUno7Ku8w1qDrU-R6oPhd3IK5aEFYGwv6I2Rd5LXTCeMEE5d9PN70HeK6yWIqH5jdTCMqaNC8DyySIdtfvVboqkEsMv5aABcrvVbsEHnSSlHsnOjty2s3nu93OJPg_OcAz_ayXu7-G7Hv4l7Va7D0qhqt8ejvZMz8MgJPKocBBAcsGQIB1G6HBGhztx4LJqyEa7YSDZBg8TdeGDASfrWQZ5psbR2x-NesyRyE4P6vW-ZvSX53d7rZRzkgpnLnJGZLapdB3mBcQPoZi4XeRnU0LSz0nWZMJw7MoRqJ8A4Gsa8uy7oneHNzT0uPkJ29bBJiCXsMDjvQYV3FwzsWHSf3Z_al8kTFEFWjCAd3BuHn0Gy4jWHg845h4L_y1bQng9f1Gq9mAf8DNCjJhsEkeKD1uWtr5Lc-j93ysaQ8ibeOJydYFYyBTOsjW52ok6kvY5kSPBBbZ-HISl4huSpcyYxyU9RY0mBFcv4KX9B6uxFvQEEkVYmgt0mICPB-LQ3thu0WW0Nn0mhUnmECcBWw93JxwxHUeCWtTg7Dq9pYAY8PmhA-gMqhJDfQ5azYkP6MIKAXr-aolJ0e-6_R9dQFGru6I8nvXlAFq0XNGZtVustiH-Lbu1QDBQa6-=w1182-h1578-s-no?authuser=0"
+                    src="https://scontent.fbho3-1.fna.fbcdn.net/v/t39.30808-6/327298829_566564585379826_5897108415686837442_n.jpg?_nc_cat=100&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=L93gpOCj3vYAX_KI6Wl&_nc_ht=scontent.fbho3-1.fna&oh=00_AfASxXwlic_V4YODivTOJlowk2HzDKeilm4zDHCuSCgrJQ&oe=64C44E80"
                     alt="Ashutosh Kumar's Profile Picture"
-                    width="331"
-                    height="429"
+                    width="311"
+                    height="209"
                 />
             </div>
             <div className="profile-details">

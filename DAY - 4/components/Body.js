@@ -2,13 +2,8 @@ import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterRestaurant( searchText, restaurantz ) {
-    return restaurantz.filter( ( restaurant ) =>
-        restaurant?.info?.name?.toLowerCase()?.includes( searchText?.toLowerCase() )
-    );
-}
-
+import { filterRestaurant } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 export const Body = () => {
     const [ allRestaurantz, setAllRestaurantz ] = useState( [] );
@@ -58,6 +53,27 @@ export const Body = () => {
         }
     }
 
+    const isOnline = useOnline();
+
+    if ( !isOnline ) {
+        return (
+            <>
+                <div className="offline-message-container">
+                    <h2 className="offline-message">
+                        You're Offline, Kabhi toh time pr wifi k bill bhar do...
+                    </h2>
+                </div>
+                <div className="offline-image-container">
+                    <img
+                        src="./hero.JPG"
+                        alt="hero-image"
+                        className="offline-image"
+                    />
+                </div>
+            </>
+        );
+    }
+
     /* 
     Conditional rendering:
     1. if restaurant has no data then use shimmering effect -> UX principle
@@ -66,42 +82,26 @@ export const Body = () => {
 
     if ( !allRestaurantz ) return null;
 
-    // if ( filteredRestaurantz?.length === 0 ) return <h1>Chodu hai kya bhai?</h1>
-
     return allRestaurantz?.length === 0 ? ( <Shimmer /> ) :
         (
             <>
-                <div className="search-container">
+                <div class="search-container">
                     <input
                         type="text"
-                        className="search-input"
-                        placeholder="Search..."
+                        class="search-input"
+                        placeholder="Search By Restaurant Name..."
                         value={searchText}
                         onChange={onChangeHandler}
                     />
-                    <button className="search-btn" onClick={() => {
-                        const filteredData = filterRestaurant( searchText, allRestaurantz );
-                        setFilteredRestaurantz( filteredData );
-                    }}>
-                        Search
-                    </button>
-                    <button className="search-btn" onClick={() => {
-                        setFilteredRestaurantz( allRestaurantz );
-                        setSeachText( "" );
-                    }}>
-                        Reset
-                    </button> - {searchText}
                 </div>
+
                 <div className="restaurant-list">
                     {
                         filteredRestaurantz?.length ===0 ? <h1>Kyu krta hai bhai yeh sab? Maine hr point pr check lga diya!</h1> :  filteredRestaurantz?.map( ( restaurant ) => {
                             return <Link to={"/restaurant/" + restaurant.info.id}><RestaurantCard data={restaurant.info} key={restaurant.info.id} /></Link>
                         } )
                     }
-
                 </div>
-
-
             </>
         );
 }
