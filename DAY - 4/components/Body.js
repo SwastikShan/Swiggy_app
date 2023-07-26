@@ -85,17 +85,17 @@ export const Body = () => {
     return allRestaurantz?.length === 0 ? ( <Shimmer /> ) :
         (
             <>
-                <div class="search-container">
+                <div className="flex items-center justify-center p-5">
                     <input
                         type="text"
-                        class="search-input"
                         placeholder="Search By Restaurant Name..."
                         value={searchText}
                         onChange={onChangeHandler}
+                        className="bg-white p-5 rounded-full w-96 border border-black"
                     />
                 </div>
 
-                <div className="restaurant-list">
+                <div className="flex flex-wrap items-center justify-evenly">
                     {
                         filteredRestaurantz?.length ===0 ? <h1>Kyu krta hai bhai yeh sab? Maine hr point pr check lga diya!</h1> :  filteredRestaurantz?.map( ( restaurant ) => {
                             return <Link to={"/restaurant/" + restaurant.info.id}><RestaurantCard data={restaurant.info} key={restaurant.info.id} /></Link>

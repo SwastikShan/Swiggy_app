@@ -41,26 +41,43 @@ export const HeaderComponent = () => {
         }
     }
     return (
-        <div className="header">
+        <div className="flex p-10 justify-between bg-orange-600/80 shadow-lg font-bold text-xl h-3 items-center rounded-b-3xl top-0 sticky z-1">
             <Title />
-            <div className="nav-items">
-                <ul>
-                    <Link to="/"><li>Home</li> </Link>
-                    <Link to="/about"><li>About Us</li></Link>
-                    <Link to="/contact"><li>Contact Us</li></Link>
-                    <Link to="/instamart">
-                        <li>Instamart</li>
+            <div className="">
+                <ul className="flex px-10">
+                    <Link to="/">
+                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
+                            Home
+                        </li>
                     </Link>
-                    <li>Cart</li>
+                    <Link to="/about">
+                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
+                            About Us
+                        </li>
+                    </Link>
+                    <Link to="/contact">
+                        <li className="px-4 hover:bg-green-400/80 hover:rounded-md active:bg-green-500/80 ">
+                            Contact Us
+                        </li>
+                    </Link>
+                    <Link to="/instamart">
+                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
+                            Instamart
+                        </li>
+                    </Link>
+                    <li className="px-4 hover:bg-green-400/80 hover:rounded-md active:bg-green-500/80 ">
+                        Cart
+                    </li>
+
+                    <li className="px-4">
+                        {isOnline ? ( <h2 className="hover:bg-green-400/80 hover:rounded-md px-2 active:bg-green-500/80 ">Online 🟢</h2> ) : ( <h2 className="hover:bg-red-400/80 hover:rounded-md px-2 active:bg-green-500/80 ">Offline 🔴</h2> )}
+                    </li>
                 </ul>
-                <div>
-                    {isOnline ? (<h2>Online 🟢</h2>) :(<h2>Offline 🔴</h2>)}
-                </div>
-            </div>
+            </div >
             {loggedIn ? (
-                <button onClick={onClickHandler}>Logout</button>
+                <button className="flex " onClick={onClickHandler}>Logout</button>
             ) : (
-                <button onClick={onClickHandler}>Login</button>
+                <button className="flex " onClick={onClickHandler}>Login</button>
             )}
         </div>
     );

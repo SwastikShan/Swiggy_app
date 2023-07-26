@@ -1,16 +1,34 @@
 export const RestaurantCard = ( props ) => {
+    const { data } = props;
+
     return (
-        <div className="card">
+        <div className="w-96 h-96 p-4 m-4 bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center">
             {/* image of restaurant / food */}
-            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + props.data?.cloudinaryImageId} alt="food-logo" />
-            {/* name of restaurant */}
-            <h2>{props.data?.name}</h2>
-            {/* cuisines offered */}
-            <h3>Cuisines : {props.data?.cuisines.join( ", " )}</h3>
-            {/* ratings */}
-            <h4>Ratings : {props.data?.avgRating} stars & rated by {props.data?.totalRatingsString}</h4>
-            <h4>Address : {props.data?.areaName}, {props.data?.locality}</h4>
-            <h4>Cost for two : {props.data?.costForTwo }</h4>
+            <div className="w-full h-44 mb-4 rounded-md overflow-hidden aspect-w-16 aspect-h-9">
+                {data?.cloudinaryImageId ? (
+                    <img
+                        src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${ data?.cloudinaryImageId }`}
+                        alt="food-logo"
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gray-200"></div>
+                )}
+            </div>
+            <div className="text-center flex flex-col justify-center flex-1">
+                {/* name of restaurant */}
+                <h2 className="text-xl font-bold mb-2">{data?.name}</h2>
+                {/* cuisines offered */}
+                <p className="text-gray-600 text-base font-semibold truncate">
+                    Cuisines: <span className="whitespace-normal">{data?.cuisines.join( ", " )}</span>
+                </p>
+                {/* ratings */}
+                <p className="text-gray-600 text-base font-light truncate">Ratings: {data?.avgRating}</p>
+                <p className="text-gray-600 text-base font-light truncate">
+                    Area: <span className="whitespace-normal">{data?.areaName}, {data?.locality}</span>
+                </p>
+                <p className="text-gray-600 text-base font-light truncate">Cost for two: {data?.costForTwo}</p>
+            </div>
         </div>
-    )
-}
+    );
+};

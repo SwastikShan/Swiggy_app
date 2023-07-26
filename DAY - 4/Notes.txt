@@ -1,0 +1,7 @@
+1. Ways to write
+    -> normal native css
+    -> inline css
+    -> sass / scss
+    -> component libraries : Ant UI, Base UI(made by uber), Material UI, Chakra
+    -> Styled components
+    -> Tailwind CSS framework
