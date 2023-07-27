@@ -45,7 +45,7 @@ export const HeaderComponent = () => {
                         {isOnline ? (
                             <h2 className="text-green-500 animate__animated animate__bounceIn animate__delay-1s">Online 🟢</h2>
                         ) : (
-                            <h2 className="text-red-500 animate__animated animate__bounceIn animate__delay-1s">Offline 🔴</h2>
+                            <h2 className="text-red-500 animate__animated animate__bounceIn animate__delay-1s bg-yellow-200 rounded-md p-1">Offline 🔴</h2>
                         )}
                     </li>
                 </ul>
