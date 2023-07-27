@@ -1,6 +1,8 @@
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 export const RestaurantCard = ( props ) => {
     const { data } = props;
-
+    const { user } = useContext( UserContext );
     return (
         <div className="w-96 h-96 p-4 m-4 bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center">
             {/* image of restaurant / food */}
@@ -23,11 +25,12 @@ export const RestaurantCard = ( props ) => {
                     Cuisines: <span className="whitespace-normal">{data?.cuisines.join( ", " )}</span>
                 </p>
                 {/* ratings */}
-                <p className="text-gray-600 text-base font-light truncate">Ratings: {data?.avgRating}</p>
+                <p className="text-gray-600 text-base font-light truncate">Ratings: {data?.avgRating} stars</p>
                 <p className="text-gray-600 text-base font-light truncate">
                     Area: <span className="whitespace-normal">{data?.areaName}, {data?.locality}</span>
                 </p>
                 <p className="text-gray-600 text-base font-light truncate">Cost for two: {data?.costForTwo}</p>
+                <p className="text-gray-600 text-base font-light bg-slate-200 rounded-md p-1">User's name: {user.name} - {user.email}</p>
             </div>
         </div>
     );

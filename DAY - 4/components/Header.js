@@ -1,84 +1,62 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import "animate.css";
+import UserContext from "../utils/UserContext";
 
 const Title = () => {
-    // const [ title, setTitle ] = useState( "Uncle Ji Paani Pila Dijiye..." );
-
     return (
-        <>
-            <a href="/" className="hello">
-                <h1 id="title" key="h2">
-                    Food Villa
-                </h1>
-            </a>
-            {/* <h1>{title}</h1> */}
-            {/* <button onClick={() => {
-
-                if ( title === "Uncle Ji Paani Pila Dijiye..." ) {
-                    setTitle( "Mera Gala Sookh Rha Hai...." )
-                }
-                else {
-                    setTitle( "Uncle Ji Paani Pila Dijiye..." )
-                }
-
-            }}>Pr Kyu Bhai?</button> */}
-            {/* const isOnline = useOnline(); */}
-        </>
-    )
-}
+        <a href="/" className="text-4xl font-bold text-white animate__animated animate__heartBeat">
+            Food Villa
+        </a>
+    );
+};
 
 export const HeaderComponent = () => {
     const [ loggedIn, setLoggedIn ] = useState( false );
     const isOnline = useOnline();
 
+    const {user} = useContext(UserContext);
+
     const onClickHandler = () => {
-        if ( loggedIn ) {
-            setLoggedIn( false );
-        }
-        else {
-            setLoggedIn( true );
-        }
-    }
+        setLoggedIn( !loggedIn );
+    };
+
     return (
-        <div className="flex p-10 justify-between bg-orange-600/80 shadow-lg font-bold text-xl h-3 items-center rounded-b-3xl top-0 sticky z-1">
+        <div className="flex items-center justify-between px-10 py-4 bg-gradient-to-r from-orange-600 to-orange-800 shadow-lg font-bold text-xl sticky top-0 z-10">
             <Title />
-            <div className="">
-                <ul className="flex px-10">
+            <div className="flex space-x-4">
+                <ul className="flex space-x-4">
                     <Link to="/">
-                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
-                            Home
-                        </li>
+                        <li className="hover:bg-green-400/80 rounded-md py-2 px-4 animate__animated animate__bounceInUp">Home</li>
                     </Link>
                     <Link to="/about">
-                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
-                            About Us
-                        </li>
+                        <li className="hover:bg-green-400/80 rounded-md py-2 px-4 animate__animated animate__bounceInUp">About Us</li>
                     </Link>
                     <Link to="/contact">
-                        <li className="px-4 hover:bg-green-400/80 hover:rounded-md active:bg-green-500/80 ">
-                            Contact Us
-                        </li>
+                        <li className="hover:bg-green-400/80 rounded-md py-2 px-4 animate__animated animate__bounceInUp">Contact Us</li>
                     </Link>
                     <Link to="/instamart">
-                        <li className="px-4 hover:bg-green-400/80  hover:rounded-md active:bg-green-500/80 ">
-                            Instamart
-                        </li>
+                        <li className="hover:bg-green-400/80 rounded-md py-2 px-4 animate__animated animate__bounceInUp">Instamart</li>
                     </Link>
-                    <li className="px-4 hover:bg-green-400/80 hover:rounded-md active:bg-green-500/80 ">
-                        Cart
-                    </li>
-
-                    <li className="px-4">
-                        {isOnline ? ( <h2 className="hover:bg-green-400/80 hover:rounded-md px-2 active:bg-green-500/80 ">Online 🟢</h2> ) : ( <h2 className="hover:bg-red-400/80 hover:rounded-md px-2 active:bg-green-500/80 ">Offline 🔴</h2> )}
+                    <li className="hover:bg-green-400/80 rounded-md py-2 px-4 animate__animated animate__bounceInUp">Cart</li>
+                    <li className="bg-green-600 text-white rounded-md py-2 px-4 animate__animated animate__bounceInUp">{user.name}</li>
+                    <li className="py-2 px-4">
+                        {isOnline ? (
+                            <h2 className="text-green-500 animate__animated animate__bounceIn animate__delay-1s">Online 🟢</h2>
+                        ) : (
+                            <h2 className="text-red-500 animate__animated animate__bounceIn animate__delay-1s">Offline 🔴</h2>
+                        )}
                     </li>
                 </ul>
-            </div >
-            {loggedIn ? (
-                <button className="flex " onClick={onClickHandler}>Logout</button>
-            ) : (
-                <button className="flex " onClick={onClickHandler}>Login</button>
-            )}
+                <button
+                    className={`py-2 px-4 rounded-md animate__animated ${ loggedIn ? "bg-red-600 animate__tada" : "bg-green-600 animate__heartBeat"
+                        } animate__delay-2s text-white`}
+                    onClick={onClickHandler}
+                >
+                    {loggedIn ? "Logout" : "Login"}
+                </button>
+            </div>
         </div>
     );
 };
