@@ -27,6 +27,7 @@ const AppLayout = () => {
                     setUser: setUser,
                 }
             }>
+                
                 <HeaderComponent />
                 <Outlet className="flex-1" />
                 <Footer></Footer>

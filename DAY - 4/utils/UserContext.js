@@ -10,4 +10,6 @@ const UserContext = createContext(
     }
 );
 
+UserContext.displayName = "This is the user context created in utils folder";
+
 export default UserContext;

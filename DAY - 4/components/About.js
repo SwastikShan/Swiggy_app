@@ -1,12 +1,14 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Outlet } from "react-router-dom";
 import { Profile } from "./Profile";
+import UserContext from "../utils/UserContext";
 
 const AboutUs = () => {
+    const { user } = useContext( UserContext );
     return (
         <div className="m-5">
             <h2 className="text-3xl text-center font-bold text-orange-600 mb-5">
-                Welcome to Food Villa
+                Welcome to Food Villa - {user.name}
             </h2>
             <Profile />
             <Outlet />
