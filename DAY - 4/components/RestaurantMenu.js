@@ -31,27 +31,27 @@ export const RestaurantMenu = () => {
                 </div>
                 <div className="flex flex-col justify-center">
                     <h1 className="text-2xl md:text-5xl font-bold mb-2">
-                        {restaurant?.[ 0 ]?.card?.card?.info.name}
+                        {restaurant?.[ 0 ]?.card?.card?.info?.name}
                     </h1>
                     <p className="text-gray-600 text-xl md:text-base">
-                        Cuisines: {restaurant?.[ 0 ]?.card?.card?.info.cuisines.join( ", " )}
+                        Cuisines: {restaurant?.[ 0 ]?.card?.card?.info?.cuisines.join( ", " )}
                     </p>
                     <p className="text-gray-600 text-xl md:text-base">
-                        Ratings: {restaurant?.[ 0 ]?.card?.card?.info.avgRating}
+                        Ratings: {restaurant?.[ 0 ]?.card?.card?.info?.avgRating}
                     </p>
                     <p className="text-gray-600 text-xl md:text-base">
-                        Area: {restaurant?.[ 0 ]?.card?.card?.info.areaName},{" "}
-                        {restaurant?.[ 0 ]?.card?.card?.info.city}
+                        Area: {restaurant?.[ 0 ]?.card?.card?.info?.areaName},{" "}
+                        {restaurant?.[ 0 ]?.card?.card?.info?.city}
                     </p>
                     <p className="text-gray-600 text-xl md:text-base">
-                        Cost for two: {restaurant?.[ 0 ]?.card?.card?.info.costForTwoMessage}
+                        Cost for two: {restaurant?.[ 0 ]?.card?.card?.info?.costForTwoMessage}
                     </p>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 {restaurant &&
-                    restaurant[ 3 ]?.groupedCard?.cardGroupMap?.REGULAR?.cards[ 1 ]?.card?.card
+                    restaurant[ 2 ]?.groupedCard?.cardGroupMap?.REGULAR?.cards[ 1 ]?.card?.card
                         ?.itemCards?.map( ( food ) => (
                             <div key={food?.card?.info?.id} className="border border-gray-200 rounded-md p-4">
                                 {food?.card?.info?.imageId ? (
@@ -79,6 +79,9 @@ export const RestaurantMenu = () => {
                                 </p>
                                 <p className="text-yellow-600 font-semibold mb-2">
                                     Ratings: {food?.card?.info?.ratings?.aggregatedRating?.rating} stars
+                                </p>
+                                <p className="text-gray-600 text-sm mb-2">
+                                    Description: {food?.card?.info?.description}
                                 </p>
                             </div>
                         ) )}

@@ -26,6 +26,7 @@ export const RestaurantCard = ( props ) => {
                 </p>
                 {/* ratings */}
                 <p className="text-gray-600 text-base font-light truncate">Ratings: {data?.avgRating} stars</p>
+                <p className="text-gray-600 text-base font-light truncate">Ratings: {data?.description} stars</p>
                 <p className="text-gray-600 text-base font-light truncate">
                     Area: <span className="whitespace-normal">{data?.areaName}, {data?.locality}</span>
                 </p>

@@ -19,7 +19,7 @@ export const Body = () => {
     async function getRestaurants() {
         try {
             const data = await fetch(
-                "https://www.swiggy.com/mapi/homepage/getCards?lat=19.024156&lng=72.8370062"
+                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258"
             );
 
             if ( !data.ok ) {
@@ -34,14 +34,15 @@ export const Body = () => {
             );
 
             setAllRestaurantz(
-                json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle
-                    ?.restaurants
+                json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants
             );
 
             setFilteredRestaurantz(
-                json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle
-                    ?.restaurants
+                json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants
             );
+            console.log( `hello babu pehle` );
+            console.log( json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants );
+            console.log( `hello babu baad` );
         } catch ( error ) {
             console.error( "Error fetching restaurant data:", error );
             // Handle errors gracefully or display a message to the user.
@@ -119,7 +120,7 @@ export const Body = () => {
                     </div>
 
                 </div>
-            <div className="flex justify-center items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {filteredRestaurantz?.length === 0 ? (
                     <h1 className="text-center text-red-500 font-bold text-xl">
                         No results found!

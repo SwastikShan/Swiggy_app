@@ -10,6 +10,8 @@ import { RestaurantMenu } from "./components/RestaurantMenu";
 import { Profile } from "./components/Profile";
 import { Shimmer } from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const Instamart = lazy( () => import( "./components/Instamart" ) );
 const AboutUs = lazy( () => import( "./components/About" ) );
@@ -20,6 +22,7 @@ const AppLayout = () => {
         email: "ashu.kumarexam@gmail.com",
     })
     return (
+        <Provider store={store}>
         <div className="flex flex-col min-h-screen">
             <UserContext.Provider value={
                 {
@@ -32,7 +35,8 @@ const AppLayout = () => {
                 <Outlet className="flex-1" />
                 <Footer></Footer>
             </UserContext.Provider>
-        </div>
+            </div>
+        </Provider>
     );
 };
 
