@@ -19,7 +19,7 @@ export const Body = () => {
     async function getRestaurants() {
         try {
             const data = await fetch(
-                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258"
+                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559"
             );
 
             if ( !data.ok ) {
@@ -28,10 +28,10 @@ export const Body = () => {
 
             const json = await data.json();
             console.log( json );
-            console.log(
-                json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle
-                    ?.restaurants
-            );
+            // console.log(
+            //     json?.data?.success?.cards[ 1 ]?.gridWidget?.gridElements?.infoWithStyle
+            //         ?.restaurants
+            // );
 
             setAllRestaurantz(
                 json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -41,7 +41,7 @@ export const Body = () => {
                 json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants
             );
             console.log( `hello babu pehle` );
-            console.log( json?.data?.cards[ 5 ]?.card?.card?.gridElements?.infoWithStyle?.restaurants );
+            console.log( json?.data?.cards[4]);
             console.log( `hello babu baad` );
         } catch ( error ) {
             console.error( "Error fetching restaurant data:", error );

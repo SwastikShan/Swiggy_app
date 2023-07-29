@@ -4,6 +4,7 @@ const store = configureStore( {
     /* here i'll create slices */
 
     reducer: {
+        // name of slice: slice
         cart: cartSlice,
     }
 } );

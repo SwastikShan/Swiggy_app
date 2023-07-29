@@ -12,6 +12,8 @@ import { Shimmer } from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
+import Payment from "./components/Payment";
 
 const Instamart = lazy( () => import( "./components/Instamart" ) );
 const AboutUs = lazy( () => import( "./components/About" ) );
@@ -20,21 +22,21 @@ const AppLayout = () => {
     const [ user, setUser ] = useState( {
         name: "Ashutosh Kumar",
         email: "ashu.kumarexam@gmail.com",
-    })
+    } )
     return (
         <Provider store={store}>
-        <div className="flex flex-col min-h-screen">
-            <UserContext.Provider value={
-                {
-                    user: user,
-                    setUser: setUser,
-                }
-            }>
-                
-                <HeaderComponent />
-                <Outlet className="flex-1" />
-                <Footer></Footer>
-            </UserContext.Provider>
+            <div className="flex flex-col min-h-screen">
+                <UserContext.Provider value={
+                    {
+                        user: user,
+                        setUser: setUser,
+                    }
+                }>
+
+                    <HeaderComponent />
+                    <Outlet className="flex-1" />
+                    <Footer></Footer>
+                </UserContext.Provider>
             </div>
         </Provider>
     );
@@ -52,7 +54,7 @@ const appRouter = createBrowserRouter( [
             },
             {
                 path: "/about",
-                element: <Suspense fallback={<Shimmer/>}>
+                element: <Suspense fallback={<Shimmer />}>
                     <AboutUs />
                 </Suspense>,
                 errorElement: <Error />,
@@ -73,9 +75,17 @@ const appRouter = createBrowserRouter( [
             },
             {
                 path: "/instamart",
-                element: <Suspense fallback={<Shimmer/>}>
+                element: <Suspense fallback={<Shimmer />}>
                     <Instamart />
                 </Suspense>
+            },
+            {
+                path: "/cart",
+                element: <Cart />
+            },
+            {
+                path: "/payment",
+                element: <Payment />
             }
         ]
     },

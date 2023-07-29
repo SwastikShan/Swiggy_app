@@ -2,12 +2,24 @@ import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "./Config";
 import { Shimmer } from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem, removeItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 export const RestaurantMenu = () => {
     const { resId } = useParams();
-    console.log( `This is your params : ${ resId }` );
+    // console.log( `This is your params : ${ resId }` );
 
     const restaurant = useRestaurant( resId );
+
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        dispatch( addItem( item ) );
+    }
+
+    const handleRemoveItem = ( item ) => {
+        dispatch( removeItem( item ) );
+    }
 
     return !restaurant ? (
         <Shimmer />
@@ -51,7 +63,7 @@ export const RestaurantMenu = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 {restaurant &&
-                    restaurant[ 2 ]?.groupedCard?.cardGroupMap?.REGULAR?.cards[ 1 ]?.card?.card
+                        restaurant[ 2 ]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
                         ?.itemCards?.map( ( food ) => (
                             <div key={food?.card?.info?.id} className="border border-gray-200 rounded-md p-4">
                                 {food?.card?.info?.imageId ? (
@@ -67,15 +79,28 @@ export const RestaurantMenu = () => {
                                         className="w-full h-40 rounded-md object-cover shadow-md mb-4"
                                     />
                                 )}
-                                <h3 className="text-lg font-semibold mb-2">{food?.card?.info?.name}</h3>
-                                <p className="text-gray-600 text-sm mb-2">
+                                <h3 className="text-xl font-semibold mb-2">{food?.card?.info?.name}</h3>
+                                <p className="text-gray-600 text-lg mb-2">
                                     Category: {food?.card?.info?.category}
                                 </p>
                                 <p className="text-green-600 font-semibold mb-2">
-                                    Price: {food?.card?.info?.price / 100}₹
+                                    <p className="text-green-600 font-semibold mb-2">
+                                        Price: {food?.card?.info?.price || food?.card?.info?.defaultPrice ? `${ ( food?.card?.info?.price || food?.card?.info?.defaultPrice ) / 100 }₹` : "Not available"}
+                                    </p>
+
+                                    {console.log(`price : ${food?.card?.info?.price}`)}
                                 </p>
                                 <p className="text-gray-600 text-sm mb-2">
-                                    Veg / Non-Veg: {food?.card?.info?.itemAttribute?.vegClassifier}
+                                    Veg / Non-Veg:{" "}
+                                    {food?.card?.info?.itemAttribute?.vegClassifier === "VEG" ? (
+                                        <span role="img" aria-label="Veg" className="text-green-600">
+                                            🥗 Veg
+                                        </span>
+                                    ) : (
+                                        <span role="img" aria-label="Non-Veg" className="text-red-600">
+                                            🍗 Non-Veg
+                                        </span>
+                                    )}
                                 </p>
                                 <p className="text-yellow-600 font-semibold mb-2">
                                     Ratings: {food?.card?.info?.ratings?.aggregatedRating?.rating} stars
@@ -83,8 +108,23 @@ export const RestaurantMenu = () => {
                                 <p className="text-gray-600 text-sm mb-2">
                                     Description: {food?.card?.info?.description}
                                 </p>
+                                <div className="flex justify-center mt-4">
+                                    <button
+                                        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
+                                        onClick={() => handleAddItem( food?.card?.info )}
+                                    >
+                                        Add to Cart
+                                    </button>
+                                    <button
+                                        className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 ml-2 rounded-full"
+                                        onClick={() => handleRemoveItem( food?.card?.info?.id )}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
-                        ) )}
+                        ) )
+                }
             </div>
         </div>
     );
