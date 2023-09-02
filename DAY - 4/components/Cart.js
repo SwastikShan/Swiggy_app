@@ -4,6 +4,13 @@ import { FoodItem } from "./FoodItem";
 import { Link } from "react-router-dom";
 import { clearCart } from "../utils/cartSlice";
 
+const truncateDescription = ( description, maxLength ) => {
+  if ( description.length <= maxLength ) {
+    return description;
+  }
+  return description.slice( 0, maxLength ) + " ...";
+};
+
 const Cart = () => {
   const cartItems = useSelector( ( store ) => store?.cart?.items );
 
@@ -40,13 +47,13 @@ const Cart = () => {
         <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
 
         {cartItems.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-center h-full my-auto">
             <img
-              src="../src/images/bg.png"
+              src="https://i.postimg.cc/pVG3dLS1/bg.png"
               alt="Empty Cart"
-              className="w-80 h-80 mb-4"
+              className="w-80 h-80 mb-5"
             />
-            <p className="text-2xl mt-3 text-gray-600">Your cart is empty.</p>
+            <p className="text-4xl mt-3 text-gray-600">Your cart is empty 🥺</p>
           </div>
         ) : (
           <>
@@ -116,9 +123,9 @@ const Cart = () => {
           </>
         )}
       </div>
-      <footer className="bg-gray-200 py-4 text-center">
+      {/* <footer className="bg-gray-200 py-4 text-center">
         <p className="text-gray-600">Your Footer Content Here</p>
-      </footer>
+      </footer> */}
     </div>
   );
 };

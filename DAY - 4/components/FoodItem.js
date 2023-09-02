@@ -18,6 +18,13 @@ export const FoodItem = ( props ) => {
         window.scrollTo( 0, 0 );
     }, [] );
 
+    const truncateDescription = ( description, maxLength ) => {
+        if ( description.length <= maxLength ) {
+            return description;
+        }
+        return description.slice( 0, maxLength ) + " ...";
+    };
+
     return (
         <div className="w-full p-4 bg-white rounded-md shadow-md hover:shadow-xl transition duration-300">
             {/* image of restaurant / food */}
@@ -26,7 +33,7 @@ export const FoodItem = ( props ) => {
                     <img
                         src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${ data?.imageId }`}
                         alt="food-logo"
-                        className="w-full h-full object-cover"
+                        className="w-full h-48 object-cover"
                     />
                 ) : (
                     <div className="w-full h-full bg-gray-200"></div>
@@ -34,10 +41,10 @@ export const FoodItem = ( props ) => {
             </div>
             <div className="text-center">
                 {/* name of restaurant */}
-                <h2 className="text-xl font-bold mb-2">{data?.name}</h2>
+                <h2 className="text-xl font-bold mb-2">{truncateDescription(data?.name, 26)}</h2>
                 {/* cuisines offered */}
                 <p className="text-gray-600 text-base font-semibold mb-2">
-                    Description: {data?.description}
+                    Description: {truncateDescription(data?.description, 55)}
                 </p>
                 {/* other details */}
                 <p className="text-gray-600 text-base font-light">
