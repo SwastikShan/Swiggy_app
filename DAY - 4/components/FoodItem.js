@@ -1,5 +1,6 @@
 import { addItem, removeItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export const FoodItem = ( props ) => {
     const { data } = props;
@@ -12,6 +13,10 @@ export const FoodItem = ( props ) => {
     const handleRemoveItem = () => {
         dispatch( removeItem( data.id ) );
     };
+
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
 
     return (
         <div className="w-full p-4 bg-white rounded-md shadow-md hover:shadow-xl transition duration-300">

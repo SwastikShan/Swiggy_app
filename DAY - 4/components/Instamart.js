@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Section = ( { title, description, visible, setIsVisible } ) => {
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
     return (
-        <div className="border border-black m-2 p-4">
+        <div className="border border-black m-2 p-4 rounded-md">
             <h3 className="font-bold text-xl">{title}</h3>
             {visible ? (
                 <div>

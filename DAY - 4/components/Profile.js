@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 
 export const Profile = () => {
     const developerInfo = {
@@ -9,11 +9,15 @@ export const Profile = () => {
             "Hi there! I'm Ashutosh Kumar, a passionate web developer with a keen interest in building modern and user-friendly applications. I love working with cutting-edge technologies and have experience in front-end and back-end development using React, Node.js, and Express.",
     };
 
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
+
     return (
         <div className="flex flex-col lg:flex-row m-2">
             <div className="lg:w-1/3 m-2">
                 <img
-                    src="https://scontent.fbho3-1.fna.fbcdn.net/v/t39.30808-6/327298829_566564585379826_5897108415686837442_n.jpg?_nc_cat=100&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=L93gpOCj3vYAX_KI6Wl&_nc_ht=scontent.fbho3-1.fna&oh=00_AfASxXwlic_V4YODivTOJlowk2HzDKeilm4zDHCuSCgrJQ&oe=64C44E80"
+                    src="https://i.postimg.cc/WzmPpbs0/Profile-picture-5.png"
                     alt="Ashutosh Kumar's Profile Picture"
                     className="rounded-full w-48 h-48 lg:w-auto lg:h-auto"
                 />

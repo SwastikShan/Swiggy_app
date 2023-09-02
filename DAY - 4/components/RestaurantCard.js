@@ -1,8 +1,11 @@
 import UserContext from "../utils/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 export const RestaurantCard = ( props ) => {
     const { data } = props;
     const { user } = useContext( UserContext );
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
     return (
         <div className="w-96 h-96 p-4 m-4 bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center">
             {/* image of restaurant / food */}

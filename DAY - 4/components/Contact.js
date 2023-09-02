@@ -7,7 +7,7 @@ const contacts = [
         email: "ashu.kumarexam@gmail.com",
         address: "Near Ranjhi Police Station, Jabalpur",
         profileImage:
-            "https://scontent.fbho3-2.fna.fbcdn.net/v/t39.30808-6/332948233_575420604517622_6981298926687614067_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=NRoyKxuiS88AX_Z57MU&_nc_ht=scontent.fbho3-2.fna&oh=00_AfA3aSvyz3ZUVf98mOTtmusJOfU3EKNKB8-RYI3kg-WUKA&oe=64C58BE3",
+            "https://i.postimg.cc/WzmPpbs0/Profile-picture-5.png",
     },
     // Add more contacts here
 ];
@@ -19,6 +19,9 @@ const Contact = () => {
             // Enable vertical scrolling on unmount
             document.body.style.overflowY = "auto";
         };
+    }, [] );
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
     }, [] );
     return (
         <div className="flex flex-col items-center justify-center min-h-screen overflow-y-hidden">
@@ -43,10 +46,6 @@ const Contact = () => {
                             </p>
                             <p className="text-gray-600">
                                 <strong>Address:</strong> {contact.address}
-                            </p>
-                            <p className="text-gray-600">
-                                <strong>Pic credit: </strong>
-                                 Prabhanshu Rawat
                             </p>
                         </div>
                     </div>

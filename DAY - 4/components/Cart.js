@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FoodItem } from "./FoodItem";
 import { Link } from "react-router-dom";
@@ -13,6 +13,10 @@ const Cart = () => {
     const gst = subtotal * 0.1; // Example GST calculation (10% of subtotal)
     const serviceTax = subtotal * 0.05; // Example service tax calculation (5% of subtotal)
     const total = subtotal + deliveryFees + gst + serviceTax;
+
+    useEffect( () => {
+      window.scrollTo( 0, 0 );
+    }, [] );
 
     return {
       subtotal: subtotal.toFixed( 2 ),

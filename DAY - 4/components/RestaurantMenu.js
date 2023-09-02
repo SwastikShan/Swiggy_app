@@ -4,6 +4,7 @@ import { Shimmer } from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
 import { addItem, removeItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -20,6 +21,10 @@ export const RestaurantMenu = () => {
     const handleRemoveItem = ( item ) => {
         dispatch( removeItem( item ) );
     }
+
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
 
     return !restaurant ? (
         <Shimmer />

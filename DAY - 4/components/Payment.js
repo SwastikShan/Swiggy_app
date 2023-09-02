@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const Payment = () => {
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">

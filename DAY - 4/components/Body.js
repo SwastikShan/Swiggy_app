@@ -15,6 +15,9 @@ export const Body = () => {
     useEffect( () => {
         getRestaurants();
     }, [] );
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
 
     async function getRestaurants() {
         try {
@@ -65,16 +68,16 @@ export const Body = () => {
 
     if ( !isOnline ) {
         return (
-            <>
+            <div className="flex min-h-screen items-center justify-center flex-col text-5xl font-extralight">
                 <div className="offline-message-container">
                     <h2 className="offline-message">
-                        You're Offline, Kabhi toh time pr wifi k bill bhar do...
+                        Oh! You're offline, check your internet connection! 💔
                     </h2>
                 </div>
-                <div className="offline-image-container">
-                    <img src="./hero.JPG" alt="hero-image" className="offline-image" />
-                </div>
-            </>
+                {/* <div className="offline-image-container">
+                    <img src="../components/hero.JPG" alt="hero-image" className="offline-image" />
+                </div> */}
+            </div>
         );
     }
 

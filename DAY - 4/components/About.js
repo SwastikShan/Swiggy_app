@@ -1,20 +1,23 @@
-import React,{useContext} from "react";
+import React,{useContext, useEffect} from "react";
 import { Outlet } from "react-router-dom";
 import { Profile } from "./Profile";
 import UserContext from "../utils/UserContext";
 
 const AboutUs = () => {
     const { user } = useContext( UserContext );
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
     return (
         <div className="m-5">
             <h2 className="text-3xl text-center font-bold text-orange-600 mb-5">
-                Welcome to Food Villa - {user.name}
+                Welcome to Swiggie - {user.name} 🥂
             </h2>
             <Profile />
             <Outlet />
             <div className="mt-8">
                 <p>
-                    Food Villa is your one-stop destination for delicious and delightful
+                    Swiggie is your one-stop destination for delicious and delightful
                     food. We are passionate about serving you the best food experience,
                     right at your doorstep. With a wide range of cuisines and a team of
                     talented chefs, we aim to satisfy your taste buds and make every meal a
@@ -22,14 +25,14 @@ const AboutUs = () => {
                 </p>
                 <h3 className="mt-6 text-xl font-semibold">Our Speciality</h3>
                 <p>
-                    At Food Villa, we take pride in offering a diverse and delectable menu
+                    At Swiggie, we take pride in offering a diverse and delectable menu
                     that caters to all your cravings. From mouthwatering appetizers to
                     wholesome main courses and delectable desserts, we have something for
                     everyone. Our dishes are prepared with the freshest ingredients and a
                     dash of love, ensuring that you enjoy the authentic flavors in every
                     bite.
                 </p>
-                <h3 className="mt-6 text-xl font-semibold">Why Choose Food Villa?</h3>
+                <h3 className="mt-6 text-xl font-semibold">Why Choose Swiggie?</h3>
                 <ul className="list-disc pl-8">
                     <li>
                         Wide Range of Cuisines: We bring you a variety of cuisines from
