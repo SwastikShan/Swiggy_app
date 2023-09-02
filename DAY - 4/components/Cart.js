@@ -14,10 +14,6 @@ const Cart = () => {
     const serviceTax = subtotal * 0.05; // Example service tax calculation (5% of subtotal)
     const total = subtotal + deliveryFees + gst + serviceTax;
 
-    useEffect( () => {
-      window.scrollTo( 0, 0 );
-    }, [] );
-
     return {
       subtotal: subtotal.toFixed( 2 ),
       deliveryFees: deliveryFees.toFixed( 2 ),
@@ -33,6 +29,10 @@ const Cart = () => {
   };
 
   const priceBreakdown = calculateTotalPrice();
+
+  useEffect( () => {
+    window.scrollTo( 0, 0 );
+  }, [] );
 
   return (
     <div className="flex flex-col min-h-screen">
