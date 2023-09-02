@@ -70,6 +70,9 @@ export const RestaurantMenu = () => {
                     <p className="text-gray-600 text-xl md:text-base">
                         Cost for two: {restaurant?.[ 0 ]?.card?.card?.info?.costForTwoMessage}
                     </p>
+                    <p className="text-gray-600 text-xl md:text-base">
+                        ID of restaurant: {restaurant?.[ 0 ]?.card?.card?.info?.id}
+                    </p>
                 </div>
             </div>
 

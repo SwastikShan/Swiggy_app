@@ -9,8 +9,9 @@ const Title = () => {
     return (
         <a
             href="/"
-            className="text-4xl font-bold text-white"
+            className="text-4xl font-bold text-white flex flex-row items-center justify-center"
         >
+            <img src="https://png.pngitem.com/pimgs/s/33-330532_png-tumblr-transparent-love-donut-png-png-download.png" className="w-12 h-12 rounded-full mr-2" />
             Swiggie
         </a>
     );
