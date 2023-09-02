@@ -125,7 +125,7 @@ export const Body = () => {
                 </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {filteredRestaurantz?.length === 0 ? (
-                    <h1 className="text-center text-red-500 font-bold text-xl">
+                    <h1 className="flex items-center justify-center flex-col h-full">
                         No results found!
                     </h1>
                 ) : (

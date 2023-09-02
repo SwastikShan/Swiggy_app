@@ -26,6 +26,13 @@ export const RestaurantMenu = () => {
         window.scrollTo( 0, 0 );
     }, [] );
 
+    const truncateDescription = ( description, maxLength ) => {
+        if ( description.length <= maxLength ) {
+            return description;
+        }
+        return description.slice( 0, maxLength ) + " ...";
+    };
+
     return !restaurant ? (
         <Shimmer />
     ) : (
@@ -80,11 +87,11 @@ export const RestaurantMenu = () => {
                                 ) : (
                                     <img
                                         src="https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg"
-                                        alt={food?.card?.info?.name}
+                                            alt={truncateDescription(food?.card?.info?.name,20)}
                                         className="w-full h-40 rounded-md object-cover shadow-md mb-4"
                                     />
                                 )}
-                                <h3 className="text-xl font-semibold mb-2">{food?.card?.info?.name}</h3>
+                                <h3 className="text-xl font-semibold mb-2">{truncateDescription( food?.card?.info?.name, 32 )}</h3>
                                 <p className="text-gray-600 text-lg mb-2">
                                     Category: {food?.card?.info?.category}
                                 </p>
@@ -111,7 +118,7 @@ export const RestaurantMenu = () => {
                                     Ratings: {food?.card?.info?.ratings?.aggregatedRating?.rating} stars
                                 </p>
                                 <p className="text-gray-600 text-sm mb-2">
-                                    Description: {food?.card?.info?.description}
+                                    Description: {truncateDescription(food?.card?.info?.description,50)}
                                 </p>
                                 <div className="flex justify-center mt-4">
                                     <button
