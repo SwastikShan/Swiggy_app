@@ -4,8 +4,8 @@ const UserContext = createContext(
     {
         user:
         {
-            name: "",
-            email: "",
+            name: "Shantanu_kumar",
+            email: "Kumarshantanu4403@gmail.com",
         },
     }
 );

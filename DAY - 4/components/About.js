@@ -11,7 +11,7 @@ const AboutUs = () => {
     return (
         <div className="m-5">
             <h2 className="text-3xl text-center font-bold text-orange-600 mb-5">
-                Welcome to Swiggie - {user.name} 🥂
+                Welcome to Swiggie - Shantanu Kumar 🥂
             </h2>
             <Profile />
             <Outlet />

@@ -2,12 +2,12 @@ import React,{useEffect} from "react";
 
 const contacts = [
     {
-        name: "Ashutosh Kumar",
-        phoneNumber: "+91-9352478931",
-        email: "ashu.kumarexam@gmail.com",
-        address: "Near Ranjhi Police Station, Jabalpur",
+        name: "Shantanu Kumar",
+        phoneNumber: "+91-6201xxxxxx",
+        email: "Kumarshantanu4403.com",
+        address: "Hunasamaranhalli,yelanka,bangalore",
         profileImage:
-            "https://i.postimg.cc/WzmPpbs0/Profile-picture-5.png",
+            "https://i.postimg.cc/XY0qRQCB/RESUME-PIC-formal.png",
     },
     // Add more contacts here
 ];
@@ -53,7 +53,7 @@ const Contact = () => {
             </div>
             {/* Footer */}
             <footer className="fixed bottom-0 left-0 w-full bg-gray-900 text-white py-4 text-center">
-                &copy; 2023 Food Villa by Ashutosh. All rights reserved.
+                &copy; 2023 Food Villa by Shantanu. All rights reserved.
             </footer>
         </div>
     );
